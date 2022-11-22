@@ -1,3 +1,5 @@
+import 'mesin_kopi.dart';
+
 class Pegawai {
   var nomorId = '0001';
   var username;
@@ -17,6 +19,8 @@ class Pegawai {
     print('$nama presensi keluar....');
     return false;
   }
+
+  MesinKopi mesinKopi1 = MesinKopi();
 
   cetakProfil() {
     print('nama: $nama');

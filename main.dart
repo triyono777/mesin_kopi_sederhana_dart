@@ -1,10 +1,11 @@
+import 'mesin_kasir.dart';
 import 'mesin_kopi.dart';
 import 'pegawai.dart';
 import 'dart:io';
 
 main() {
   var pegawai = Pegawai();
-  var mesin = MesinKopi();
+  var mesinKopi = MesinKopi();
   stdout.write('masukan username: ');
   var username = stdin.readLineSync();
   stdout.write('masukan password: ');
@@ -21,16 +22,16 @@ main() {
     var menu = stdin.readLineSync();
     switch (menu) {
       case '1':
-        var pilihan = mesin.tampilMenu();
-        mesin.membuatKopi(pilihan);
+        var pilihan = mesinKopi.tampilMenu();
+        mesinKopi.membuatKopi(pilihan);
         break;
       case '2':
         print('penghasilan');
-        print(mesin.totalPenghasilan);
+        print(mesinKopi.totalPenghasilan);
         break;
       case '3':
         print('cek stok');
-        mesin.cekStok();
+        mesinKopi.cekStok();
         break;
 
       default:
@@ -44,8 +45,8 @@ main() {
       isLogin = true;
     } else {
       isLogin = false;
-      print('total penghasilan: ${mesin.totalPenghasilan}');
-      mesin.cekStok();
+      print('total penghasilan: ${mesinKopi.totalPenghasilan}');
+      mesinKopi.cekStok();
       pegawai.absenKeluar();
       print('terima kasih');
     }

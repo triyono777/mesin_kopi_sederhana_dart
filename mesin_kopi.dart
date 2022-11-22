@@ -11,13 +11,14 @@ class MesinKopi {
   MesinKasir _mesinKasir = MesinKasir();
   set uangMasuk(int value) {
     _mesinKasir.uangMasuk = value;
-    ;
+
     // _penghasilan += value;
     print('uang masuk ${_mesinKasir.totalPenghasilan}');
   }
 
   get totalPenghasilan {
     // print('uang hasil $_penghasilan');
+
     print('uang hasil ${_mesinKasir.totalPenghasilan}');
     return _mesinKasir.totalPenghasilan;
   }
@@ -41,10 +42,11 @@ class MesinKopi {
     var uang = num.parse(stdin.readLineSync() ?? '0');
     switch (menuTerpilih) {
       case '1':
-        if (_stokAir < 0 || _stokKopi < 0 || _stokSusu < 0) {
+        if (_stokAir < 100 || _stokKopi < 30 || _stokSusu < 70) {
           print('stok tidak cukup');
         } else {
           _kembalian(harga: 30000, uang: uang);
+
           _stokAir -= 100;
           _stokKopi -= 30;
           _stokSusu -= 70;
@@ -54,7 +56,7 @@ class MesinKopi {
         }
         break;
       case '2':
-        if (_stokAir < 0 || _stokKopi < 0 || _stokSusu < 0) {
+        if (_stokAir < 100 || _stokKopi < 50 || _stokSusu < 50) {
           print('stok tidak cukup');
         } else {
           _kembalian(harga: 27000, uang: uang);
@@ -68,7 +70,7 @@ class MesinKopi {
         }
         break;
       case '3':
-        if (_stokAir < 0 || _stokKopi < 0 || _stokSusu < 0) {
+        if (_stokAir < 100 || _stokKopi < 100) {
           print('stok tidak cukup');
         } else {
           _kembalian(harga: 25000, uang: uang);
@@ -97,7 +99,7 @@ class MesinKopi {
 
   bool _kembalian({num uang = 0, num harga = 0}) {
     if (uang < harga) {
-      print('uang kurang break');
+      print('uang kurang');
       return false;
     } else if (uang > harga) {
       var kembalian = uang - harga;
